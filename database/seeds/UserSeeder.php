@@ -29,7 +29,7 @@ class UserSeeder extends Seeder
 
         $user->create([
             'role_id'        => 2,
-            'school_id'      => 1,
+            'school_id'      => 104,
             'first'          => 'Jason',
             'last'           => 'Raimondi',
             'phone'          => '(954) 703-0436',
@@ -40,7 +40,7 @@ class UserSeeder extends Seeder
             'remember_token' => str_random(10),
         ]);
 
-        factory(App\User::class, 100)->create();
+        factory(App\User::class, 1000)->create();
 
     }
 }

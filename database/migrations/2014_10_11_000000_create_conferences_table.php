@@ -12,11 +12,14 @@ class CreateConferencesTable extends Migration
      */
     public function up()
     {
+        
         Schema::create('conferences', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('nick');
             $table->timestamps();
         });
+
     }
 
     /**

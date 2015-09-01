@@ -14,7 +14,7 @@
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
         'role_id'        => 2,
-        'school_id'      => $faker->numberBetween(1,14),
+        'school_id'      => $faker->numberBetween(1,128),
         'first'          => $faker->firstName,
         'last'           => $faker->lastName,
         'phone'          => $faker->phoneNumber,

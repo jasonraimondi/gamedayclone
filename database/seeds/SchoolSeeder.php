@@ -1,5 +1,6 @@
 <?php
 
+use App\School;
 use Illuminate\Database\Seeder;
 
 class SchoolSeeder extends Seeder
@@ -12,156 +13,244 @@ class SchoolSeeder extends Seeder
     public function run()
     {
 
-        $school = new \App\School;
+        $theAmerican = [
+            'University of Central Florida',
+            'University of Cincinnati',
+            'University of Connecticut',
+            'East Carolina University',
+            'University of Houston',
+            'University of Memphis',
+            'University of South Florida',
+            'Southern Methodist University',
+            'Temple University',
+            'Tulane University',
+            'University of Tulsa'
+        ];
 
-        $school->create([
-            'conference_id'   => 1,
-            'name' => 'University of Florida'
-        ]);
+        $ACC = [
+            'Boston College',
+            'Clemson University',
+            'Duke University',
+            'Florida State University',
+            'Georgia Institute of Technology',
+            'North Carolina State University',
+            'Syracuse University',
+            'University of Louisville',
+            'University of Miami',
+            'University of North Carolina',
+            'University of Notre Dame',
+            'University of Pittsburg',
+            'University of Virginia',
+            'Virginia Polytechnic Institute',
+            'Wake Forest University'
+        ];
 
-        $school->create([
-            'conference_id'   => 1,
-            'name' => 'University of Georgia'
-        ]);
+        $bigTen = [
+            'University of Illinois at Urbana–Champaign',
+            'Indiana University',
+            'University of Iowa',
+            'University of Maryland',
+            'University of Michigan',
+            'Michigan State University',
+            'University of Minnesota',
+            'University of Nebraska–Lincoln',
+            'Northwestern University',
+            'The Ohio State University',
+            'Pennsylvania State University',
+            'Purdue University',
+            'Rutgers University',
+            'University of Wisconsin–Madison'
+        ];
 
-        $school->create([
-            'conference_id'   => 1,
-            'name' => 'University of Kentucky'
-        ]);
+        $bigTwelve = [
+            'Baylor University',
+            'Iowa State University',
+            'University of Kansas',
+            'Kansas State University',
+            'University of Oklahoma',
+            'Oklahoma State University',
+            'University of Texas at Austin',
+            'Texas Christian University',
+            'Texas Tech University',
+            'West Virginia University'
+        ];
 
-        $school->create([
-            'conference_id'   => 1,
-            'name' => 'University of Missouri'
-        ]);
+        $CUSA = [
+            'University of Alabama at Birmingham',
+            'Florida Atlantic University',
+            'Florida International University',
+            'Louisiana Tech University',
+            'Marshall University',
+            'Middle Tennessee State University',
+            'University of North Carolina at Charlotte',
+            'University of North Texas',
+            'Old Dominion University',
+            'Rice University',
+            'University of Southern Mississippi',
+            'University of Texas at El Paso',
+            'University of Texas at San Antonio',
+            'Western Kentucky University'
+        ];
 
-        $school->create([
-            'conference_id'   => 1,
-            'name' => 'University of South Carolina'
-        ]);
+        $Ind = [
+            'United States Military Academy',
+            'United States Naval Academy',
+            'University of Notre Dame',
+            'Brigham Young University'
+        ];
 
-        $school->create([
-            'conference_id'   => 1,
-            'name' => 'University of Tennessee'
-        ]);
+        $MAC = [
+            'University of Akron',
+            'Bowling Green State University',
+            'The State University of New York at Buffalo',
+            'Kent State University',
+            'Miami University',
+            'Ohio University',
+            'Ball State University',
+            'Central Michigan University',
+            'Eastern Michigan University',
+            'Northern Illinois University',
+            'University of Toledo',
+            'Western Michigan University'
+        ];
 
-        $school->create([
-            'conference_id'   => 1,
-            'name' => 'Vanderbilt University'
-        ]);
+        $MW = [
+            'United States Air Force Academy',
+            'Boise State University',
+            'California State University, Fresno',
+            'Colorado State University',
+            'University of Nevada, Reno',
+            'University of Nevada, Las Vegas',
+            'University of New Mexico',
+            'San Diego State University',
+            'San Jose State University',
+            'Utah State University',
+            'University of Wyoming'
+        ];
 
-        $school->create([
-            'conference_id'   => 1,
-            'name' => 'University of Alabama'
-        ]);
+        $pacTwelve = [
+            'University of Arizona',
+            'Arizona State University',
+            'University of California, Berkeley',
+            'University of California, Los Angeles',
+            'University of Colorado Boulder',
+            'University of Oregon',
+            'Oregon State University',
+            'University of Southern California',
+            'Stanford University',
+            'University of Utah',
+            'University of Washington',
+            'Washington State University'
+        ];
 
-        $school->create([
-            'conference_id'   => 1,
-            'name' => 'University of Arkansas'
-        ]);
+        $SEC = [
+            'University of Florida',
+            'University of Georgia',
+            'University of Kentucky',
+            'University of Missouri',
+            'University of South Carolina',
+            'University of Tennessee',
+            'Vanderbilt University',
+            'University of Alabama',
+            'University of Arkansas',
+            'Auburn University',
+            'Louisiana State University',
+            'University of Mississippi',
+            'Mississippi State University',
+            'Texas A&M University'
+        ];
 
-        $school->create([
-            'conference_id'   => 1,
-            'name' => 'Auburn University'
-        ]);
+        $sunBelt = [
+            'Appalachian State University',
+            'Arkansas State University',
+            'University of Arkansas at Little Rock',
+            'Georgia Southern University',
+            'Georgia State University',
+            'University of Louisiana at Lafayette',
+            'University of Louisiana at Monroe',
+            'University of South Alabama',
+            'Texas State University',
+            'University of Texas at Arlington',
+            'Troy University'
+        ];
 
-        $school->create([
-            'conference_id'   => 1,
-            'name' => 'Louisiana State University'
-        ]);
+        foreach ($theAmerican as $school) {
+            School::create([
+                'conference_id' => 1,
+                'name'          => $school
+            ]);
+        }
 
-        $school->create([
-            'conference_id'   => 1,
-            'name' => 'University of Mississippi'
-        ]);
-
-        $school->create([
-            'conference_id'   => 1,
-            'name' => 'Mississippi State University'
-        ]);
-
-        $school->create([
-            'conference_id'   => 1,
-            'name' => 'Texas A&M University'
-        ]);
+        foreach ($ACC as $school) {
+            School::create([
+                'conference_id' => 2,
+                'name'          => $school
+            ]);
+        }
 
 
+        foreach ($bigTen as $school) {
+            School::create([
+                'conference_id' => 3,
+                'name'          => $school
+            ]);
+        }
 
-        
-        $school->create([
-            'conference_id' => 2,
-            'name' => 'Boston College'
-        ]);
+        foreach ($bigTwelve as $school) {
+            School::create([
+                'conference_id' => 4,
+                'name'          => $school
+            ]);
+        }
 
-        $school->create([
-            'conference_id' => 2,
-            'name' => 'Clemson University'
-        ]);
+        foreach ($CUSA as $school) {
+            School::create([
+                'conference_id' => 5,
+                'name'          => $school
+            ]);
+        }
 
-        $school->create([
-            'conference_id' => 2,
-            'name' => 'Duke University'
-        ]);
+        foreach ($Ind as $school) {
+            School::create([
+                'conference_id' => 6,
+                'name'          => $school
+            ]);
+        }
 
-        $school->create([
-            'conference_id' => 2,
-            'name' => 'Florida State University'
-        ]);
+        foreach ($MAC as $school) {
+            School::create([
+                'conference_id' => 7,
+                'name'          => $school
+            ]);
+        }
 
-        $school->create([
-            'conference_id' => 2,
-            'name' => 'Georgia Institute of Technology'
-        ]);
+        foreach ($MW as $school) {
+            School::create([
+                'conference_id' => 8,
+                'name'          => $school
+            ]);
+        }
 
-        $school->create([
-            'conference_id' => 2,
-            'name' => 'North Carolina State University'
-        ]);
+        foreach ($pacTwelve as $school) {
+            School::create([
+                'conference_id' => 9,
+                'name'          => $school
+            ]);
+        }
 
-        $school->create([
-            'conference_id' => 2,
-            'name' => 'Syracuse University'
-        ]);
+        foreach ($SEC as $school) {
+            School::create([
+                'conference_id' => 10,
+                'name'          => $school
+            ]);
+        }
 
-        $school->create([
-            'conference_id' => 2,
-            'name' => 'University of Louisville'
-        ]);
-
-        $school->create([
-            'conference_id' => 2,
-            'name' => 'University of Miami'
-        ]);
-
-        $school->create([
-            'conference_id' => 2,
-            'name' => 'University of North Carolina'
-        ]);
-
-        $school->create([
-            'conference_id' => 2,
-            'name' => 'University of Notre Dame'
-        ]);
-
-        $school->create([
-            'conference_id' => 2,
-            'name' => 'University of Pittsburg'
-        ]);
-
-        $school->create([
-            'conference_id' => 2,
-            'name' => 'University of Virginia'
-        ]);
-
-        $school->create([
-            'conference_id' => 2,
-            'name' => 'Virginia Polytechnic Institute'
-        ]);
-
-        $school->create([
-            'conference_id' => 2,
-            'name' => 'Wake Forest University'
-        ]);
-
+        foreach ($sunBelt as $school) {
+            School::create([
+                'conference_id' => 11,
+                'name'          => $school
+            ]);
+        }
 
     }
 }
