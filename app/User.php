@@ -1,7 +1,12 @@
 <?php
 
-namespace App;
+namespace Gameday;
 
+use Gameday\Role;
+use Gameday\School;
+use Gameday\Ticket;
+use Gameday\Dispute;
+use Gameday\Conference;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -38,24 +43,44 @@ class User extends Model implements AuthenticatableContract,
      */
     protected $hidden = ['password', 'remember_token'];
 
+    public function isVerified()
+    {
+        return $this->verified;
+    }
+
     public function is($role)
     {
-        return ($this->role_id == Role::where('name', $role)->pluck('id')) ? true : false;
+        return ($this->role_id == Role::where('name', $role)->pluck('id')) ? 1 : 0;
     }
 
     public function role()
     {
-        return \App\Role::findOrFail($this->role_id);
+        return Role::findOrFail($this->role_id);
     }
 
     public function school()
     {
-        return \App\School::findOrFail($this->school_id);
+        return School::select('id', 'name', 'conference_id')->findOrFail($this->school_id);
     }
 
     public function conference()
     {
-        return \App\Conference::findOrFail($this->school()->conference_id);
+        return Conference::select('id', 'name')->findOrFail($this->school()->conference_id);
+    }
+
+    public function selling()
+    {
+        return Ticket::where('seller_id', $this->id)->get();
+    }
+
+    public function buying()
+    {
+        return Ticket::where('buyer_id', $this->id)->get();
+    }
+
+    public function disputes()
+    {
+        return Dispute::where('user_id', $this->id)->get();
     }
 
 }
