@@ -14,10 +14,19 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->integer('role_id')->unsigned()->index();
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
+            $table->integer('school_id')->unsigned()->index();
+            $table->foreign('school_id')->references('id')->on('schools')->onDelete('cascade');
+            $table->string('first');
+            $table->string('last');
+            $table->string('phone');
             $table->string('email')->unique();
+            $table->string('paypal')->nullable();
             $table->string('password', 60);
+            $table->boolean('verified')->default(false);
             $table->rememberToken();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

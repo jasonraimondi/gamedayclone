@@ -13,9 +13,15 @@
 
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->email,
-        'password' => bcrypt(str_random(10)),
+        'role_id'        => 2,
+        'school_id'      => $faker->numberBetween(1,14),
+        'first'          => $faker->firstName,
+        'last'           => $faker->lastName,
+        'phone'          => $faker->phoneNumber,
+        'email'          => $faker->email,
+        'paypal'         => $faker->email,
+        'password'       => bcrypt('user'),
+        'verified'       => $faker->biasedNumberBetween($min = 0, $max = 1, $function = 'sqrt'),
         'remember_token' => str_random(10),
     ];
 });

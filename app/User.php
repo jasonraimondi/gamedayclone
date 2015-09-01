@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
@@ -14,7 +15,7 @@ class User extends Model implements AuthenticatableContract,
                                     AuthorizableContract,
                                     CanResetPasswordContract
 {
-    use Authenticatable, Authorizable, CanResetPassword;
+    use SoftDeletes, Authenticatable, Authorizable, CanResetPassword;
 
     /**
      * The database table used by the model.
@@ -28,7 +29,7 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['first', 'last', 'email', 'paypal', 'password'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -36,4 +37,25 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    public function is($role)
+    {
+        return ($this->role_id == Role::where('name', $role)->pluck('id')) ? true : false;
+    }
+
+    public function role()
+    {
+        return \App\Role::findOrFail($this->role_id);
+    }
+
+    public function school()
+    {
+        return \App\School::findOrFail($this->school_id);
+    }
+
+    public function conference()
+    {
+        return \App\Conference::findOrFail($this->school()->conference_id);
+    }
+
 }
