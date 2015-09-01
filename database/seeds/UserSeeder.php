@@ -1,5 +1,6 @@
 <?php
 
+use Gameday\User;
 use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
@@ -12,13 +13,11 @@ class UserSeeder extends Seeder
     public function run()
     {
 
-        $user = new \App\User;
-
-        $user->create([
+        User::create([
             'role_id'        => 1,
             'school_id'      => 1,
-            'first'          => 'First',
-            'last'           => 'Last',
+            'first'          => 'Super',
+            'last'           => 'Admin',
             'phone'          => '(555) 867-5309',
             'email'          => 'admin@admin.com',
             'paypal'         => 'admin@admin.com',
@@ -27,7 +26,7 @@ class UserSeeder extends Seeder
             'remember_token' => str_random(10),
         ]);
 
-        $user->create([
+        User::create([
             'role_id'        => 2,
             'school_id'      => 104,
             'first'          => 'Jason',
@@ -40,7 +39,7 @@ class UserSeeder extends Seeder
             'remember_token' => str_random(10),
         ]);
 
-        factory(App\User::class, 1000)->create();
+        factory(User::class, 1000)->create();
 
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace Gameday\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

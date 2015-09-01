@@ -1,8 +1,9 @@
 <?php
 
-namespace App;
+namespace Gameday;
 
-use App\Conference;
+use Gameday\Ticket;
+use Gameday\Conference;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 

@@ -1,6 +1,6 @@
 <?php
 
-use App\School;
+use Gameday\School;
 use Illuminate\Database\Seeder;
 
 class SchoolSeeder extends Seeder

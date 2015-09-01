@@ -11,7 +11,7 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(Gameday\User::class, function (Faker\Generator $faker) {
     return [
         'role_id'        => 2,
         'school_id'      => $faker->numberBetween(1,128),

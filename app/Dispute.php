@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Gameday;
 
 use Illuminate\Database\Eloquent\Model;
 

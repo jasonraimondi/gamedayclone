@@ -1,5 +1,6 @@
 <?php
 
+use App\Role;
 use Illuminate\Database\Seeder;
 
 class RoleSeeder extends Seeder
@@ -11,13 +12,12 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        $role = new \App\Role;
 
-        $role->create([
+        Role::create([
             'name'  =>  'superadmin'
         ]);
 
-        $role->create([
+        Role::create([
             'name'  =>  'user'
         ]);
 

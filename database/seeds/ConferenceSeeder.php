@@ -1,5 +1,6 @@
 <?php
 
+use Gameday\Conference;
 use Illuminate\Database\Seeder;
 
 class ConferenceSeeder extends Seeder
@@ -11,59 +12,58 @@ class ConferenceSeeder extends Seeder
      */
     public function run()
     {
-        $conference = new \App\Conference;
 
-        $conference->create([
+        Conference::create([
             'name'  =>  'American Athletic Conference',
             'nick'  =>  'The American'
         ]);
 
-        $conference->create([
+        Conference::create([
             'name'  =>  'Atlantic Coast Conference',
             'nick'  =>  'ACC'
         ]);
 
-        $conference->create([
+        Conference::create([
             'name'  =>  'Big Ten Conference',
             'nick'  =>  'Big Ten'
         ]);
 
-        $conference->create([
+        Conference::create([
             'name'  =>  'Big 12 Conference',
             'nick'  =>  'Big 12'
         ]);
 
-        $conference->create([
+        Conference::create([
             'name'  =>  'Conference USA',
             'nick'  =>  'C-USA'
         ]);
 
-        $conference->create([
+        Conference::create([
             'name'  =>  'Division I FBS Independents',
             'nick'  =>  'Ind.'
         ]);
 
-        $conference->create([
+        Conference::create([
             'name'  =>  'Mid-American Conference',
             'nick'  =>  'MAC'
         ]);
 
-        $conference->create([
+        Conference::create([
             'name'  =>  'Mountain West Conference',
             'nick'  =>  'MW'
         ]);
 
-        $conference->create([
+        Conference::create([
             'name'  =>  'Pacific-12 Conference',
             'nick'  =>  'Pac-12'
         ]);
 
-        $conference->create([
+        Conference::create([
             'name'  =>  'Southeastern Conference',
             'nick'  =>  'SEC'
         ]);
 
-        $conference->create([
+        Conference::create([
             'name'  =>  'Sun Belt Conference',
             'nick'  =>  'Sun Belt'
         ]);
