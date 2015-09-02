@@ -17,7 +17,9 @@ class DatabaseSeeder extends Seeder
         $this->call(ConferenceSeeder::class);
         $this->call(RoleSeeder::class);
         $this->call(SchoolSeeder::class);
+        $this->call(GameSeeder::class);
         $this->call(UserSeeder::class);
+        $this->call(TicketSeeder::class);
 
         Model::reguard();
     }

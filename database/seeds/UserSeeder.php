@@ -16,8 +16,7 @@ class UserSeeder extends Seeder
         User::create([
             'role_id'        => 1,
             'school_id'      => 1,
-            'first'          => 'Super',
-            'last'           => 'Admin',
+            'name'           => 'Administrator',
             'phone'          => '(555) 867-5309',
             'email'          => 'admin@admin.com',
             'paypal'         => 'admin@admin.com',
@@ -29,8 +28,7 @@ class UserSeeder extends Seeder
         User::create([
             'role_id'        => 2,
             'school_id'      => 104,
-            'first'          => 'Jason',
-            'last'           => 'Raimondi',
+            'name'          => 'Jason Raimondi',
             'phone'          => '(954) 703-0436',
             'email'          => 'jason@raimondi.us',
             'paypal'         => 'jason@raimondi.us',

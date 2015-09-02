@@ -1,9 +1,9 @@
 <?php
 
-use Gameday\Ticket;
+use Gameday\Game;
 use Illuminate\Database\Seeder;
 
-class TicketSeeder extends Seeder
+class GameSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class TicketSeeder extends Seeder
      */
     public function run()
     {
-        factory(Ticket::class, 2000)->create();
+        factory(Game::class, 1000)->create();
     }
 }

@@ -15,13 +15,36 @@ $factory->define(Gameday\User::class, function (Faker\Generator $faker) {
     return [
         'role_id'        => 2,
         'school_id'      => $faker->numberBetween(1,128),
-        'first'          => $faker->firstName,
-        'last'           => $faker->lastName,
+        'name'           => $faker->name,
         'phone'          => $faker->phoneNumber,
         'email'          => $faker->email,
         'paypal'         => $faker->email,
         'password'       => bcrypt('user'),
         'verified'       => $faker->biasedNumberBetween($min = 0, $max = 1, $function = 'sqrt'),
         'remember_token' => str_random(10),
+    ];
+});
+
+$factory->define(Gameday\Game::class, function (Faker\Generator $faker) {
+    return [
+        'home_team'     => $faker->numberBetween(1,128),
+        'away_team'     => $faker->numberBetween(1,128),
+        'game_datetime' => $faker->dateTimeThisYear()
+    ];
+});
+
+$factory->define(Gameday\Ticket::class, function (Faker\Generator $faker) {
+    return [
+        'game_id'     => $faker->numberBetween(1,1000),
+        'school_id'   => $faker->numberBetween(1,128),
+        'seller_id'   => $faker->numberBetween(1,1000),
+        'buyer_id'    => $faker->numberBetween(1,1000),
+        'description' => '',
+        'price'       => $faker->biasedNumberBetween($min = 1000, $max = 10000, $function = 'sqrt'),
+        'quantity'    => $faker->numberBetween(1,5),
+        'seat'        => $faker->numberBetween(1,200),
+        'row'         => $faker->numberBetween(1,100),
+        'section'     => $faker->numberBetween(1,20),
+        'featured'    => $faker->numberBetween(0,1)
     ];
 });
