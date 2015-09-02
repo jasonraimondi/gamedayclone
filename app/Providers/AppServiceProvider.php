@@ -13,7 +13,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer(['auth.register'], function ($view) {
+
+            $schools = \Gameday\School::orderBy('name', 'asc')->get();
+
+            $view->with(compact('schools'));
+
+        });
     }
 
     /**
