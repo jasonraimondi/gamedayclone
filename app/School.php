@@ -13,7 +13,7 @@ class School extends Model
 
     public function conference()
     {
-        return Conference::findOrFail($this->conference_id);
+        return $this->belongsTo('Gameday\Conference');
     }
 
     public function tickets()
