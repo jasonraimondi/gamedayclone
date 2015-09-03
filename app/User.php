@@ -43,7 +43,7 @@ class User extends Model implements AuthenticatableContract,
      */
     protected $hidden = ['password', 'remember_token'];
 
-    public function isVerified()
+    public function verified()
     {
         return $this->verified;
     }
@@ -60,27 +60,37 @@ class User extends Model implements AuthenticatableContract,
 
     public function school()
     {
-        return School::select('id', 'name', 'conference_id')->findOrFail($this->school_id);
+        return $this->belongsTo('Gameday\School');
+    }
+
+    public function selling()
+    {
+        return $this->hasMany('Gameday\Ticket', 'seller_id')->where('sold', false);
+    }
+
+    public function sold()
+    {
+        return $this->hasMany('Gameday\Ticket', 'seller_id')->where('sold', true);
+    }
+
+    public function buying()
+    {
+        return $this->hasMany('Gameday\Ticket', 'buyer_id')->where('sold', false);
+    }
+
+    public function bought()
+    {
+        return $this->hasMany('Gameday\Ticket', 'buyer_id')->where('sold', true);
+    }
+
+    public function disputes()
+    {
+        return $this->hasMany('Gameday\Dispute');
     }
 
     public function conference()
     {
         return Conference::select('id', 'name')->findOrFail($this->school()->conference_id);
-    }
-
-    public function selling()
-    {
-        return Ticket::where('seller_id', $this->id)->get();
-    }
-
-    public function buying()
-    {
-        return Ticket::where('buyer_id', $this->id)->get();
-    }
-
-    public function disputes()
-    {
-        return Dispute::where('user_id', $this->id)->get();
     }
 
 }

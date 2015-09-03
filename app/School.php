@@ -18,17 +18,17 @@ class School extends Model
 
     public function tickets()
     {
-        return Ticket::where('school_id', $this->id)->get();
+        return $this->hasMany('Gameday\Ticket');
     }
 
     public function homeGames()
     {
-        return Game::where('home_team', $this->id)->get();
+        return $this->hasMany('Gameday\Game', 'home_team');
     }
 
     public function awayGames()
     {
-        return Game::where('away_team', $this->id)->get();
+        return $this->hasMany('Gameday\Game', 'away_team');
     }
 
 }
