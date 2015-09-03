@@ -6,6 +6,7 @@ var paths = {
 	'FOUNDATION': '../../node_modules/foundation-sites/js/foundation/',
 }
 
+var $ = require('jquery');
 var foundation  = require('foundation-sites');
 // var abide       = require(paths.FOUNDATION + 'foundation.abide');
 // var accordion   = require(paths.FOUNDATION + 'foundation.accordion');
