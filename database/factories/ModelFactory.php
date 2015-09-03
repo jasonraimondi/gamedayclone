@@ -17,7 +17,7 @@ $factory->define(Gameday\User::class, function (Faker\Generator $faker) {
         'school_id'      => $faker->numberBetween(1,128),
         'name'           => $faker->name,
         'phone'          => $faker->phoneNumber,
-        'email'          => $faker->email,
+        'email'          => $faker->unique()->email,
         'paypal'         => $faker->email,
         'password'       => bcrypt('user'),
         'verified'       => $faker->biasedNumberBetween($min = 0, $max = 1, $function = 'sqrt'),
@@ -45,6 +45,7 @@ $factory->define(Gameday\Ticket::class, function (Faker\Generator $faker) {
         'seat'        => $faker->numberBetween(1,200),
         'row'         => $faker->numberBetween(1,100),
         'section'     => $faker->numberBetween(1,20),
-        'featured'    => $faker->numberBetween(0,1)
+        'featured'    => $faker->numberBetween(0,1),
+        'sold'        => $faker->numberBetween(0,1)
     ];
 });

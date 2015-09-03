@@ -29,6 +29,7 @@ class CreateTicketsTable extends Migration
             $table->string('row', 25)->nullable();
             $table->string('section', 25)->nullable();
             $table->boolean('featured')->default(false);
+            $table->boolean('sold')->default(false);
             $table->string('confirmation_code')->nullable();
             $table->softDeletes();
             $table->timestamps();
