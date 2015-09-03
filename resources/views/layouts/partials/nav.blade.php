@@ -14,13 +14,12 @@
             <!-- Right Nav Section -->
 
             <ul class="right">
-                <li><a href="#">Logout</a></li>
+                <li><a href="{{ route('logout') }}">Logout</a></li>
             </ul>
 
             <ul class="left">
-                <li><a href="#">Buy</a></li>
-                <li><a href="#">Sell</a></li>
-                <li><a href="#">My Tickets</a></li>
+                <li><a href="{{ route('schools.index') }}">Schools</a></li>
+                <li><a href="{{ route('my-tickets') }}">My Tickets</a></li>
                 <li><a href="#">My Account</a></li>
             </ul>
 

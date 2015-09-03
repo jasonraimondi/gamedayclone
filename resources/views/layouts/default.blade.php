@@ -14,11 +14,10 @@
 
                 @yield('content')
 
-                @include('layouts.partials.footer')
+                <!-- @include('layouts.partials.footer') -->
 
             </article>
         </section>
-
 
         <script src="{{ asset('assets/js/package.js') }}" charset="utf-8"></script>
 

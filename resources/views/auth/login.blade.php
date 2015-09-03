@@ -1,7 +1,7 @@
 @extends('layouts.auth')
 @section('content')
 
-<form method="POST" action="/auth/login">
+<form method="POST" action="{{ route('login.post') }}">
     <fieldset>
         <legend>Login</legend>
 
