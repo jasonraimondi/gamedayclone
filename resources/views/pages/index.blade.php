@@ -2,20 +2,15 @@
 
 @section('content')
 
-
-    <ul>
+    <ul class="no-bullet">
         @foreach($conferences as $conference)
-        <li>{{ $conference->name }}</li>
+        <li><strong>{{ $conference->name }}</strong></li>
 
-        <li>
-            @foreach($schools as $school)
-            <ul>
-                @if($school->conference_id == $conference->id)
-                <li>{{ $school->name }}</li>
-                @endif
-            </ul>
+        <ul class="no-bullet">
+            @foreach($conference->schools as $school)
+            <li>{{ $school->name }}</li>
             @endforeach
-        </li>
+        </ul>
         @endforeach
     </ul>
 

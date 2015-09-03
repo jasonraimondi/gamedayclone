@@ -10,6 +10,7 @@ class Conference extends Model
 
     public function schools()
     {
-        return School::where('conference_id', $this->id)->get();
+        return $this->hasMany('Gameday\School');
     }
+
 }

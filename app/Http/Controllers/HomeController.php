@@ -15,10 +15,9 @@ class HomeController extends Controller
     public function index()
     {
 
-        $schools = School::get();
-        $conferences = Conference::get();
+        $conferences = Conference::with('schools')->get();
 
-        return view('pages.index', compact('schools', 'conferences'));
+        return view('pages.index', compact('conferences'));
 
     }
 }
