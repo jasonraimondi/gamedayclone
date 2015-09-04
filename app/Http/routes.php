@@ -2,9 +2,13 @@
 
 Route::group(['middleware' => 'auth'], function () {
 
-    Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
+    // Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
     Route::get('my-tickets', ['as' => 'my-tickets', 'uses' => 'HomeController@myTickets']);
 
+});
+
+Route::get('/', function() {
+    return redirect('schools');
 });
 
 Route::resource('schools', 'SchoolController', ['only' => ['index', 'show']]);
