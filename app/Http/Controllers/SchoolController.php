@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use Gameday\School;
 use Gameday\Conference;
+use Gameday\Services\Helper;
 use Gameday\Http\Requests;
 use Gameday\Http\Controllers\Controller;
 
@@ -19,9 +20,11 @@ class SchoolController extends Controller
 
     public function show($id)
     {
-        $school = \Gameday\School::with('conference', 'homeGames', 'awayGames', 'tickets')->findOrFail($id);
+        $school = School::with('conference', 'homeGames', 'awayGames', 'tickets')->findOrFail($id);
+        $helper = new Helper;
+        // dd($school);
 
-        return view('pages.schools.show', compact('school'));
+        return view('pages.schools.show', compact('school', 'helper'));
     }
 
 }

@@ -2,9 +2,15 @@
 
 @section('content')
 
-{{ $school->name }}
+<h1>{{ $school->name }}</h1>
+
+<h4>Home Games</h4>
+@foreach($school->homeGames as $homeGame)
+<p>{{ $helper->schoolName($homeGame->home_team) }} vs {{ $helper->schoolName($homeGame->away_team) }}</p>
+@endforeach
 
 
+{{--
 
 <section class="row text-center">
     <article class="small-2 columns">Price</article>
@@ -27,6 +33,8 @@
     </a>
 </section>
 @endforeach
+
+--}}
 
 
 @endsection
